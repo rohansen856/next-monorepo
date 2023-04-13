@@ -1,5 +1,6 @@
 import { Button } from "ui";
 import { useSession, useSupabaseClient } from "supabase"
+import axios from "axios"
 
 export default function Web() {
   const session = useSession()
@@ -15,14 +16,24 @@ export default function Web() {
   const handleLogOut = async () => {
     await supabase.auth.signOut()
   }
-
+  const mongodbTest = async () => {
+    // const author = await axios.get("./api/mongotest").then(res => console.log(res))
+    const data = await axios.get("./api/getposts").then(res => console.log(res))
+  }
   return (
     <div>
-      {!session ? "user Logged out" : "user Logged in"}
-      <h1>Web</h1>
-      <Button />
-      <button onClick={handleLogin}>login</button>
-      <button onClick={handleLogOut}>logout</button>
+      <div>
+        <h1>SUPABASE</h1>
+        {!session ? "user Logged out" : "user Logged in"}
+        <h1>Web</h1>
+        <Button />
+        <button onClick={handleLogin}>login</button>
+        <button onClick={handleLogOut}>logout</button>
+      </div>
+      <div>
+        <h1>MONGODB</h1>
+        <button onClick={mongodbTest}>test</button>
+      </div>
     </div>
   );
 }
