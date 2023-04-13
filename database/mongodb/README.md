@@ -13,39 +13,20 @@ Can be used with supabase by applying some tricks. NoSQL database, so very easy 
 # PACKAGES USED
 
 ```json
-"devDependencies": {
-"prisma": "^4.12.0"
-},
 "dependencies": {
-"@prisma/client": "^4.12.0"
-}
+    "mongoose": "^7.0.3"
+  }
 ```
 
 # METHOD
 
---1> Install prisma as dev dependency and then
+--1> Import the modules exported from index.ts
+--2> Use :
 
-<pre>
-```bash
-yarn add prisma --dev
-yarn prisma init
+```typescript
+dbConnect();
 ```
-</pre>
 
---2> Configure your environment variables and set the DATABASE_URL in the .env file
---3> Edit the schema.prisma file inside prisma folder
---4> Push your schema to your database
-
-<pre>
-```bash
-prisma db push
-```
-</pre>
-
---5> Install the clientside connector package
-
-<pre>
-```bash
-yarn add @prisma/client
-```
-</pre>
+before calling the database for any queries. it would use cached function. so no multiple reruns.
+--3> create and use models from 'models dir.
+--4> Now you can use any standard mongoose query for indexing
