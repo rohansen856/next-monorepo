@@ -26,7 +26,7 @@ export default function Web() {
   }
   return (
     <div>
-      <div>
+      <div className="bg-green-700">
         <h1>SUPABASE</h1>
         {!session ? "user Logged out" : "user Logged in"}
         <h1>Web</h1>
@@ -34,11 +34,11 @@ export default function Web() {
         <button onClick={handleLogin}>login</button>
         <button onClick={handleLogOut}>logout</button>
       </div>
-      <div>
+      <div className="bg-green-500">
         <h1>MONGODB</h1>
         <button onClick={mongodbTest}>test</button>
       </div>
-      <div>
+      <div className="bg-blue-600">
         <h1>PLANETSCALE</h1>
         <button onClick={planetscaleTest}>test</button>
       </div>

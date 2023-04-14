@@ -1,8 +1,7 @@
+import '../styles/global.css'
 import React, { useState } from 'react'
 import type { AppProps } from 'next/app'
-import { createBrowserSupabaseClient } from 'supabase'
-import { SessionContextProvider } from 'supabase'
-import type { Session } from 'supabase'
+import { Session, createBrowserSupabaseClient, SessionContextProvider } from 'supabase'
 import Head from 'next/head'
 
 function MyApp({
