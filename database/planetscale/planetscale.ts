@@ -1,9 +1,10 @@
+/* eslint-disable turbo/no-undeclared-env-vars */
 import { ExecutedQuery, connect } from "@planetscale/database";
 
 const config = {
-  host: "aws.connect.psdb.cloud",
-  username: "5xptoptmzmzvdhqouls1",
-  password: "pscale_pw_r1l4i2OmcRqDLp9pjQQHzc0UdlRDTz4eIm2H8fQrat8",
+  host: process.env.PLANETSCALE_DATABASE_HOST,
+  username: process.env.PLANETSCALE_DATABASE_USERNAME,
+  password: process.env.PLANETSCALE_DATABASE_PASSWORD,
 };
 
 const planetscale = connect(config);
